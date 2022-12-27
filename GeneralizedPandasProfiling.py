@@ -11,13 +11,8 @@ if upload_file is not None:
     df=pd.read_csv(upload_file)
     st.dataframe(df)
     profile = ProfileReport(df)
-    st_profile_report(profile)
-    if dataset is not None:
-        df = pd.read_csv(dataset , delimiter = ",")
-        st.dataframe(df)
-        pr = df.profile_report()
-        st_profile_report(pr)       
-        export=pr.to_html()
-        st.download_button(label="Download Full Report", data=export, file_name='report.html')
+    st_profile_report(profile)   
+    export=profile.to_html()
+    st.download_button(label="Download Full Report", data=export, file_name='report.html')
 
 
