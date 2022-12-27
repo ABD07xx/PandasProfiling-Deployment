@@ -12,12 +12,11 @@ if upload_file is not None:
     st.dataframe(df)
     profile = ProfileReport(df)
     st_profile_report(profile)
-    f_pn=profile.to_file("Analysis.html")   # the file that's going to be created  
-    
-    with open(f_pn) as exfile:
-        st.download_button(     
-        label="Analysis html-file",
-        data=exfile,
-        file_name='Analysis.html',
-        mime='application/xhtml+xml',
-        )
+    f_pn=profile.to_file("Analysis.html")
+
+    st.download_button(     
+    label="Analysis html-file",
+    data=f_pn,
+    file_name='Analysis.html',
+    mime='application/xhtml+xml',
+    )
