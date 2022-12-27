@@ -12,11 +12,12 @@ if upload_file is not None:
     st.dataframe(df)
     profile = ProfileReport(df)
     st_profile_report(profile)
-    st.write("Do You want to save the report?")
-    if st.button("Yes"):
-        profile.to_file("Analysis.html")
-        profile.to_file("Analysis.json")
-        st.success("Successfully Saved")
-    if st.button("No"):
-        st.info("Reports Not saved")
+    f_pn=profile.to_file("Analysis.html")   # the file that's going to be created  
     
+    with open(f_pn, 'rb') as exfile:
+        st.download_button(     
+        label="Analysis html-file",
+        data=exfile,
+        file_name='Analysis.html',
+        mime='application/xhtml+xml',
+        )
