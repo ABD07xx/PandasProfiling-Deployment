@@ -14,7 +14,7 @@ if upload_file is not None:
     st_profile_report(profile)
     f_pn=profile.to_file("Analysis.html")   # the file that's going to be created  
     
-    with open(f_pn, 'rb') as exfile:
+    with open(f_pn) as exfile:
         st.download_button(     
         label="Analysis html-file",
         data=exfile,
