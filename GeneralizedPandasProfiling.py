@@ -12,6 +12,7 @@ if upload_file is not None:
     st.dataframe(df)
     profile = ProfileReport(df)
     st_profile_report(profile)
+    profile.to_file('Analysis.html')
     f_pn=profile.to_file("Analysis.html")
 
     st.download_button(     
